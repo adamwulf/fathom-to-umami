@@ -539,15 +539,15 @@ Examples:
     )
     
     parser.add_argument('website_path', type=Path,
-                       help='Path to website CSV export folder (e.g., example.com)')
-    parser.add_argument('output_path', type=Path, 
-                       help='Output CSV file path (e.g., output/website.csv)')
-    parser.add_argument('--verbose', '-v', action='store_true', 
-                       help='Enable verbose logging')
+                       help='Path to website CSV export folder. Name the folder after your domain (e.g., example.com) for automatic hostname detection.')
+    parser.add_argument('output_path', type=Path,
+                       help='Output CSV file path for Umami-compatible data (e.g., output/website.csv)')
+    parser.add_argument('--verbose', '-v', action='store_true',
+                       help='Enable detailed logging including processing progress and statistics')
     parser.add_argument('--debug-date', '-d', type=str,
-                       help='Debug mode: process only a single date (format: YYYY-MM-DD)')
+                       help='Debug mode: process only hours from a specific date for testing (format: YYYY-MM-DD). Much faster than full conversion.')
     parser.add_argument('--list-dates', '-l', action='store_true',
-                       help='List available dates and exit')
+                       help='List all available dates in the dataset and exit (useful for finding date ranges)')
     
     args = parser.parse_args()
     
