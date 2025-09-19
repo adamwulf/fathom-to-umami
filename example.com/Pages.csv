@@ -1,0 +1,25 @@
+Timestamp,Hostname,Pathname,Views,Uniques
+2024-01-15 10:00:00,https://example.com,/,80,30
+2024-01-15 10:00:00,https://example.com,/about,35,15
+2024-01-15 10:00:00,https://example.com,/contact,20,10
+2024-01-15 10:00:00,https://example.com,/blog,15,8
+2024-01-15 11:00:00,https://example.com,/,150,60
+2024-01-15 11:00:00,https://example.com,/products,65,25
+2024-01-15 11:00:00,https://example.com,/about,40,18
+2024-01-15 11:00:00,https://example.com,/blog,25,12
+2024-01-15 12:00:00,https://example.com,/,200,80
+2024-01-15 12:00:00,https://example.com,/products,120,45
+2024-01-15 12:00:00,https://example.com,/about,60,25
+2024-01-15 12:00:00,https://example.com,/contact,40,20
+2024-01-15 13:00:00,https://example.com,/,180,70
+2024-01-15 13:00:00,https://example.com,/blog,100,35
+2024-01-15 13:00:00,https://example.com,/products,80,30
+2024-01-15 13:00:00,https://example.com,/about,20,10
+2024-01-15 14:00:00,https://example.com,/,100,40
+2024-01-15 14:00:00,https://example.com,/products,60,25
+2024-01-15 14:00:00,https://example.com,/contact,40,18
+2024-01-15 14:00:00,https://example.com,/blog,20,10
+2024-01-15 15:00:00,https://example.com,/,90,35
+2024-01-15 15:00:00,https://example.com,/about,50,20
+2024-01-15 15:00:00,https://example.com,/products,30,15
+2024-01-15 15:00:00,https://example.com,/contact,10,5

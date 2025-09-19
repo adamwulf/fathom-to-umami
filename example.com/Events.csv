@@ -1,0 +1,17 @@
+Timestamp,Event Name,Event Code,Completions,Value
+2024-01-15 10:00:00,Newsletter Signup,signup-001,5,0
+2024-01-15 10:00:00,Download PDF,download-001,3,0
+2024-01-15 11:00:00,Newsletter Signup,signup-001,8,0
+2024-01-15 11:00:00,Contact Form,contact-001,4,0
+2024-01-15 11:00:00,Download PDF,download-001,6,0
+2024-01-15 12:00:00,Newsletter Signup,signup-001,12,0
+2024-01-15 12:00:00,Contact Form,contact-001,7,0
+2024-01-15 12:00:00,Purchase,purchase-001,2,150
+2024-01-15 13:00:00,Newsletter Signup,signup-001,10,0
+2024-01-15 13:00:00,Download PDF,download-001,8,0
+2024-01-15 13:00:00,Purchase,purchase-001,3,225
+2024-01-15 14:00:00,Newsletter Signup,signup-001,6,0
+2024-01-15 14:00:00,Contact Form,contact-001,4,0
+2024-01-15 14:00:00,Purchase,purchase-001,1,75
+2024-01-15 15:00:00,Newsletter Signup,signup-001,5,0
+2024-01-15 15:00:00,Download PDF,download-001,3,0

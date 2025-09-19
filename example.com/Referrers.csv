@@ -1,0 +1,25 @@
+Timestamp,Referrer Hostname,Referrer Pathname,Views,Visits
+2024-01-15 10:00:00,https://www.google.com,/,45,14
+2024-01-15 10:00:00,https://www.facebook.com,/,25,8
+2024-01-15 10:00:00,https://t.co,/,15,5
+2024-01-15 10:00:00,https://www.linkedin.com,/,10,3
+2024-01-15 11:00:00,https://www.google.com,/,85,26
+2024-01-15 11:00:00,https://www.facebook.com,/,50,15
+2024-01-15 11:00:00,https://t.co,/,30,9
+2024-01-15 11:00:00,https://www.reddit.com,/,20,6
+2024-01-15 12:00:00,https://www.google.com,/,130,39
+2024-01-15 12:00:00,https://www.facebook.com,/,75,23
+2024-01-15 12:00:00,https://t.co,/,45,14
+2024-01-15 12:00:00,https://www.linkedin.com,/,25,8
+2024-01-15 13:00:00,https://www.google.com,/,115,35
+2024-01-15 13:00:00,https://www.facebook.com,/,70,21
+2024-01-15 13:00:00,https://www.reddit.com,/,40,12
+2024-01-15 13:00:00,https://t.co,/,30,9
+2024-01-15 14:00:00,https://www.google.com,/,65,20
+2024-01-15 14:00:00,https://www.facebook.com,/,40,12
+2024-01-15 14:00:00,https://t.co,/,20,6
+2024-01-15 14:00:00,https://www.linkedin.com,/,15,5
+2024-01-15 15:00:00,https://www.google.com,/,55,17
+2024-01-15 15:00:00,https://www.facebook.com,/,30,9
+2024-01-15 15:00:00,https://www.reddit.com,/,20,6
+2024-01-15 15:00:00,https://t.co,/,15,5
