@@ -257,11 +257,14 @@ def main():
     parser = argparse.ArgumentParser(
         description='Verify synthetic events perfectly reconstruct original Fathom statistics'
     )
-    parser.add_argument('synthetic_csv', type=Path, help='Path to synthetic events CSV file')
-    parser.add_argument('original_website_path', type=Path, help='Path to original Fathom CSV export folder')
+    parser.add_argument('website_name', help='Website name/domain (e.g., example.com)')
     parser.add_argument('--sample-size', type=int, default=10, help='Number of timestamps to compare in detail')
-    
+
     args = parser.parse_args()
+
+    # Auto-generate paths from website name
+    synthetic_csv = Path('output') / f'{args.website_name}.csv'
+    original_website_path = Path(args.website_name)
     
     start_time = time.time()
     
@@ -269,16 +272,16 @@ def main():
     print("=" * 50)
     
     # Load synthetic events
-    print(f"📊 Loading synthetic events from {args.synthetic_csv}...")
-    events = load_synthetic_events(args.synthetic_csv)
+    print(f"📊 Loading synthetic events from {synthetic_csv}...")
+    events = load_synthetic_events(synthetic_csv)
     print(f"  Loaded {len(events)} synthetic pageview events")
-    
+
     # Rebuild statistics
     rebuilt_stats = rebuild_fathom_statistics(events)
     print(f"  Rebuilt statistics for {len(rebuilt_stats)} hours")
-    
+
     # Load original data
-    original_stats = load_original_fathom_data(args.original_website_path)
+    original_stats = load_original_fathom_data(original_website_path)
     print(f"  Loaded original statistics for {len(original_stats)} hours")
     
     # Compare

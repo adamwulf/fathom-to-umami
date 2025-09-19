@@ -45,13 +45,13 @@ The synthetic events **exactly reconstruct** the original Fathom summaries when 
 
 ```bash
 # List available dates
-python3 fathom_to_umami_converter.py example.com output/test.csv --list-dates
+python3 fathom_to_umami_converter.py example.com --list-dates
 
 # Quick debug: process single date (FAST!)
-python3 fathom_to_umami_converter.py example.com output/debug.csv --debug-date 2024-01-15 --verbose
+python3 fathom_to_umami_converter.py example.com --debug-date 2024-01-15 --verbose
 
 # Run full conversion
-python3 fathom_to_umami_converter.py mywebsite.com output/mywebsite_full.csv
+python3 fathom_to_umami_converter.py mywebsite.com
 
 # Test small subset (for development)
 python3 test_subset.py example.com
@@ -92,7 +92,7 @@ The converter includes comprehensive validation:
 
 ```bash
 # Verify conversion accuracy (generic verification)
-python3 verify_reconstruction.py output/mywebsite.csv mywebsite.com
+python3 verify_reconstruction.py mywebsite.com
 ```
 
 ## Usage Example
@@ -102,7 +102,7 @@ python3 verify_reconstruction.py output/mywebsite.csv mywebsite.com
 1. **Export from Fathom:** Download your CSV export from Fathom Analytics
 2. **Create folder:** Name it after your domain (e.g., `mywebsite.com/`)
 3. **Place CSVs:** Put all CSV files inside the folder
-4. **Run converter:** `python3 fathom_to_umami_converter.py mywebsite.com output/mywebsite.csv`
+4. **Run converter:** `python3 fathom_to_umami_converter.py mywebsite.com`
 
 ### Expected Performance
 

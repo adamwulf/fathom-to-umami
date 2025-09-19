@@ -9,7 +9,8 @@ from fathom_to_umami_converter import FathomToUmamiConverter
 
 def test_small_subset(website_folder='example.com'):
     """Test first 10 hours only"""
-    converter = FathomToUmamiConverter(website_folder, 'output/test_subset.csv', verbose=True)
+    output_path = Path('output') / f'{website_folder}.csv'
+    converter = FathomToUmamiConverter(website_folder, output_path, verbose=True)
 
     # Preload data for fast processing
     converter.preload_all_data()

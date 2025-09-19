@@ -28,10 +28,10 @@ Fathom exports only aggregated summary statistics (hourly totals by page, browse
 
 ```bash
 # Convert your website data
-python3 fathom_to_umami_converter.py mywebsite.com output/mywebsite.csv
+python3 fathom_to_umami_converter.py mywebsite.com
 
 # Convert with verbose output
-python3 fathom_to_umami_converter.py example.com output/example.csv --verbose
+python3 fathom_to_umami_converter.py example.com --verbose
 ```
 
 ### Expected Input Structure
@@ -99,6 +99,10 @@ Each synthetic dataset perfectly reconstructs the original Fathom summaries whil
 ## Mathematical Guarantee
 
 **The synthetic events will exactly reproduce the original Fathom summary statistics when re-aggregated.** This is guaranteed by the IPF algorithm's mathematical properties - it finds the maximum entropy distribution that satisfies all marginal constraints simultaneously.
+
+## Note on Data Quality
+
+**Early Fathom Data (2019):** Fathom Analytics launched its paid service in 2019. Early data from this period may contain inconsistencies, such as hours showing visits but 0 pageviews, which is logically impossible. The converter correctly skips these invalid records. This primarily affects data from 2019-2020 when the service was new. If you see "0 events" for certain hours during conversion, this is likely due to these data quality issues rather than a converter problem.
 
 ## Migration to Umami
 

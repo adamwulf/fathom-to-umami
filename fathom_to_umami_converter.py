@@ -525,23 +525,25 @@ def main():
         epilog="""
 Examples:
   # List available dates
-  python3 fathom_to_umami_converter.py example.com output/test.csv --list-dates
+  python3 fathom_to_umami_converter.py example.com --list-dates
 
   # Debug mode: process only one date (fast!)
-  python3 fathom_to_umami_converter.py example.com output/debug.csv --debug-date 2024-01-15 --verbose
+  python3 fathom_to_umami_converter.py example.com --debug-date 2024-01-15 --verbose
 
   # Convert website data (full dataset)
-  python3 fathom_to_umami_converter.py mywebsite.com output/mywebsite.csv
+  python3 fathom_to_umami_converter.py mywebsite.com
 
   # Convert with verbose output
-  python3 fathom_to_umami_converter.py example.com output/example.csv --verbose
+  python3 fathom_to_umami_converter.py example.com --verbose
+
+Output will be automatically saved to: ./output/{domain}.csv
         """
     )
     
     parser.add_argument('website_path', type=Path,
                        help='Path to website CSV export folder. Name the folder after your domain (e.g., example.com) for automatic hostname detection.')
-    parser.add_argument('output_path', type=Path,
-                       help='Output CSV file path for Umami-compatible data (e.g., output/website.csv)')
+    parser.add_argument('--output', '-o', type=Path,
+                       help='Optional: Override default output path (default: ./output/{domain}.csv)')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Enable detailed logging including processing progress and statistics')
     parser.add_argument('--debug-date', '-d', type=str,
@@ -550,7 +552,17 @@ Examples:
                        help='List all available dates in the dataset and exit (useful for finding date ranges)')
     
     args = parser.parse_args()
-    
+
+    # Generate output path if not provided
+    if args.output:
+        output_path = args.output
+    else:
+        # Auto-generate: ./output/{domain}.csv
+        domain = args.website_path.name
+        output_path = Path('output') / f'{domain}.csv'
+        # Ensure output directory exists
+        output_path.parent.mkdir(exist_ok=True)
+
     # Validate inputs
     if not args.website_path.exists():
         print(f"❌ Error: Website path not found: {args.website_path}")
@@ -563,7 +575,7 @@ Examples:
     
     # Handle list dates option
     if args.list_dates:
-        converter = FathomToUmamiConverter(args.website_path, args.output_path, args.verbose)
+        converter = FathomToUmamiConverter(args.website_path, output_path, args.verbose)
         converter.preload_all_data()
         timestamps = sorted(converter.indexed_data.keys())
         dates = sorted(set(ts[:10] for ts in timestamps))  # Extract YYYY-MM-DD
@@ -582,11 +594,11 @@ Examples:
         return 0
     
     # Run conversion
-    converter = FathomToUmamiConverter(args.website_path, args.output_path, args.verbose, args.debug_date)
-    
+    converter = FathomToUmamiConverter(args.website_path, output_path, args.verbose, args.debug_date)
+
     try:
         converter.convert_website()
-        print(f"\n🎉 Conversion complete! Output saved to {args.output_path}")
+        print(f"\n🎉 Conversion complete! Output saved to {output_path}")
         return 0
     except Exception as e:
         print(f"❌ Conversion failed: {e}")
