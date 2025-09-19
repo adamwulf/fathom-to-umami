@@ -22,16 +22,35 @@ Fathom exports only aggregated summary statistics (hourly totals by page, browse
 - ✅ **Custom Events**: Preserves custom event tracking from Fathom
 - ✅ **Umami Compatibility**: Generates CSV in exact Umami import format
 
+## Quick Start
+
+Try the converter with the included example data:
+
+```bash
+# Convert the example data
+python3 fathom_to_umami_converter.py example.com
+
+# Verify the conversion is perfect
+python3 verify_reconstruction.py example.com
+```
+
+This will:
+1. Convert `example.com/` folder → `output/example.com.csv` (1,717 events)
+2. Verify that synthetic events exactly reconstruct the original statistics
+3. Show perfect reconstruction: 6/6 hours matched ✓
+
 ## Usage
 
 ### Basic Conversion
+
+First, download your Fathom export data, and unzip it into `mywebsite.com` subfolder
 
 ```bash
 # Convert your website data
 python3 fathom_to_umami_converter.py mywebsite.com
 
 # Convert with verbose output
-python3 fathom_to_umami_converter.py example.com --verbose
+python3 fathom_to_umami_converter.py mywebsite.com --verbose
 ```
 
 ### Expected Input Structure
