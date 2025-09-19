@@ -10,7 +10,10 @@ from fathom_to_umami_converter import FathomToUmamiConverter
 def test_small_subset(website_folder='example.com'):
     """Test first 10 hours only"""
     converter = FathomToUmamiConverter(website_folder, 'output/test_subset.csv', verbose=True)
-    
+
+    # Preload data for fast processing
+    converter.preload_all_data()
+
     # Get all timestamps
     all_timestamps = converter.get_all_timestamps()
     print(f"Total timestamps: {len(all_timestamps)}")
@@ -35,7 +38,10 @@ def test_small_subset(website_folder='example.com'):
     
     # Save results
     if all_events:
-        converter.save_to_csv(all_events)
+        # Write to CSV manually
+        csv_file, writer = converter.init_csv_file()
+        converter.write_events_to_csv(writer, all_events)
+        csv_file.close()
         print(f"\n✅ Successfully processed {len(test_timestamps)} hours")
         print(f"Generated {len(all_events)} total events")
     else:
